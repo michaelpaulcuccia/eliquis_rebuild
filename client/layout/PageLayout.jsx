@@ -1,8 +1,14 @@
 import React from 'react';
 import Container from './Container';
+import Nav from './Nav';
 
 export default function PageLayout({children}) {
   return (
-    <Container>{children}</Container>
+    <>
+        <Nav/>
+        <Container>
+            {children}
+        </Container>
+    </>
   )
 }
