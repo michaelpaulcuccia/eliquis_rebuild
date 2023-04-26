@@ -6,12 +6,14 @@ import Flex from '@/utils/grid/Flex';
 
 const Root = styled(Flex)`
     height: 24px;
-    background: ${colors.blue};
+    background: ${colors.purple};
     font-family: 'Arial';
+    border-radius: 4px;
     
     @media (max-width: ${breakpoints.upperNavBreak}px) {
         height: 72px;
         justify-content: space-evenly;
+        border-radius: 0px;
     }
     
     div {
