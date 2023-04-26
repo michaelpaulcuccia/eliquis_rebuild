@@ -12,25 +12,40 @@ const Root = styled(Flex)`
     color: ${colors.white};
     padding: 12px 20px;
 
+    @media (max-width: ${breakpoints.NavBreak}px) {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 200px;
+        padding: 8px 4px;
+        margin: 0 auto;
+    }
+
     img {
         height: 100%;
+
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            align-self: flex-start;
+            height: 40%;
+        }
     }
 
     .age-text-desktop {
        align-self: center;
+       text-align: center;
     }
 
     .age-text-mobile {
         text-align: center;
         font-size: 12px;
-        padding-bottom: 8px;
+        padding-bottom: 12px;
     }
 
     .hcp-text-mobile {
         align-self: flex-end;
-        padding-bottom: 8px;
+        padding-bottom: 12px;
         color: ${colors.orange};
         font-weight: 800;
+        font-size: 14px;
 
         &:after {
             content: ' >'
@@ -51,35 +66,36 @@ const Root = styled(Flex)`
         }
     }
 
-    @media (max-width: ${breakpoints.NavBreak}px) {
-        flex-direction: column;
-        margin-top: 18px;
-
-        img {
-            align-self: flex-start;
-            height: 60%;
-        }
-    }
 `;
 
-const CallContainer = styled(Flex)`
+const PhoneWithText = styled(Flex)`
     height: 100%;
 
     img {
-        height: 70%;
+        height: 40%;
+
+        //hide-mobile class causing flex issues
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            display: none;
+        }
     }
 
     div {
-        padding-left: 8px;
-        font-weight: 800;
+    padding-left: 8px;
+    font-weight: 800;
 
-        span {
-            &:hover {
-                text-decoration: underline;
-                cursor: pointer;
-            }
+    span {
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
         }
     }
+
+    //hide-mobile class causing flex issues
+    @media (max-width: ${breakpoints.NavBreak}px) {
+        display: none;
+    }
+}
 `;
 
 const CoPay = styled.div`
@@ -106,13 +122,12 @@ export default function LowerNav() {
         <div className='hcp-text-mobile show-mobile'>HEALTHCARE PROFESSIONALS SITE</div>
         <img src={Eliquis} alt='' />
         <div className='age-text-desktop hide-mobile'>This site is inteneded for U.S. <br/> residents 18 years of age or older.</div>
-        <CallContainer
+        <PhoneWithText
             alignItems='center'
-            className='hide-mobile'
         >
             <img src={Phone} alt='' />
             <div>Call Us at <span>1-855-ELIQUIS</span></div>
-        </CallContainer>
+        </PhoneWithText>
         <CoPay
             className='hide-mobile'
         >
