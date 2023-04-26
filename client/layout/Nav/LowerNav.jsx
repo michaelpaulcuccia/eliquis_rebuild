@@ -7,29 +7,33 @@ import { breakpoints } from '@/utils/constants/screens';
 const Eliquis = '/logos/Eliquis_logo.svg';
 const Phone = '/icons/Phone_Orange.svg';
 
-const Root = styled(Flex)`
+const Root = styled.div`
+
+    .hide-mobile {
+        display: flex;
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            display: none;
+        }
+    }
+
+    .show-mobile {
+        display: none;
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            display: flex;
+        }
+    }
+`;
+
+const Desktop = styled(Flex)`
     height: 120px;
     color: ${colors.white};
     padding: 12px 20px;
 
-    @media (max-width: ${breakpoints.NavBreak}px) {
-        flex-direction: column;
-        justify-content: flex-start;
-        height: 200px;
-        padding: 8px 4px;
-        margin: 0 auto;
-    }
-
     img {
         height: 100%;
-
-        @media (max-width: ${breakpoints.NavBreak}px) {
-            align-self: flex-start;
-            height: 40%;
-        }
     }
 
-    .age-text-desktop {
+    .age-text {
        align-self: center;
        text-align: center;
     }
@@ -39,33 +43,6 @@ const Root = styled(Flex)`
         font-size: 12px;
         padding-bottom: 12px;
     }
-
-    .hcp-text-mobile {
-        align-self: flex-end;
-        padding-bottom: 12px;
-        color: ${colors.orange};
-        font-weight: 800;
-        font-size: 14px;
-
-        &:after {
-            content: ' >'
-        }
-    }
-
-    .hide-mobile {
-        display: block;
-        @media (max-width: ${breakpoints.NavBreak}px) {
-            display: none;
-        }
-    }
-
-    .show-mobile {
-        display: none;
-        @media (max-width: ${breakpoints.NavBreak}px) {
-            display: block;
-        }
-    }
-
 `;
 
 const PhoneWithText = styled(Flex)`
@@ -73,11 +50,6 @@ const PhoneWithText = styled(Flex)`
 
     img {
         height: 40%;
-
-        //hide-mobile class causing flex issues
-        @media (max-width: ${breakpoints.NavBreak}px) {
-            display: none;
-        }
     }
 
     div {
@@ -90,19 +62,51 @@ const PhoneWithText = styled(Flex)`
             cursor: pointer;
         }
     }
-
-    //hide-mobile class causing flex issues
-    @media (max-width: ${breakpoints.NavBreak}px) {
-        display: none;
-    }
 }
 `;
 
+const Mobile = styled(Flex)`
+    height: 185px;
+    padding: 8px 8px;
+    margin: 0 auto;
+    max-width: 500px;
+
+    .age-text-mobile {
+        text-align: center;
+        font-size: 12px;
+        padding-bottom: 12px;
+        font-weight: 600;
+    }
+
+    .hcp-text-mobile {
+        align-self: flex-end;
+        color: ${colors.orange};
+        font-weight: 800;
+        font-size: 14px;
+
+        &:after {
+            content: ' >'
+        }
+    }
+`;
+
+const MobileFlex = styled(Flex)`
+    height: 60%;
+    margin-top: -16px;
+
+    img {
+        height: 70%;
+        padding-left: 16px;
+    }
+
+`;
+
 const CoPay = styled.div`
-    padding: 14px 12px;
+    padding: 6px 8px;
+    font-size: 12px;
     background: ${colors.orange};
     color: ${colors.white};
-    border-radius: 8px;
+    border-radius: 4px;
     font-weight: 800;
     cursor: pointer;
     transition: background 1s ease-in-out;
@@ -114,25 +118,56 @@ const CoPay = styled.div`
 
 export default function LowerNav() {
   return (
-    <Root
-        alignItems='center'
-        justify='space-evenly'
-    >
-        <div className='age-text-mobile show-mobile'>This site is inteneded for U.S. residents 18 years of age or older.</div>
-        <div className='hcp-text-mobile show-mobile'>HEALTHCARE PROFESSIONALS SITE</div>
-        <img src={Eliquis} alt='' />
-        <div className='age-text-desktop hide-mobile'>This site is inteneded for U.S. <br/> residents 18 years of age or older.</div>
+    <Root>
+        <Desktop
+            alignItems='center'
+            justify='space-evenly'
+            className='hide-mobile'
+        >
+        <img 
+            src={Eliquis} alt='' 
+        />
+        <div 
+            className='age-text-desktop'
+        >
+            This site is inteneded for U.S. <br/> residents 18 years of age or older.</div>
         <PhoneWithText
             alignItems='center'
         >
             <img src={Phone} alt='' />
             <div>Call Us at <span>1-855-ELIQUIS</span></div>
         </PhoneWithText>
-        <CoPay
-            className='hide-mobile'
-        >
+        <CoPay>
             ACTIVATE CO-PAY CARD
         </CoPay>
+        </Desktop>
+        {/* ******** */}
+        <Mobile
+            direction='column'
+            className='show-mobile'
+        >
+            <div 
+                className='age-text-mobile'
+            >
+                This site is inteneded for U.S. residents 18 years of age or older.
+            </div>
+            <div 
+                className='hcp-text-mobile'
+            >
+                HEALTHCARE PROFESSIONALS SITE
+            </div>
+            <MobileFlex
+                justify='space-between'
+                alignItems='flex-end'
+            >
+                <img src={Eliquis} alt='' />
+                <div>
+                    <CoPay>
+                        ACTIVATE CO-PAY CARD
+                    </CoPay>
+                </div>
+            </MobileFlex>
+        </Mobile>
     </Root>
   )
 }
