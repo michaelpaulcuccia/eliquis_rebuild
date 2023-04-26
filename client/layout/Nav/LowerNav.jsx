@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from '@/utils/grid/Flex';
 import { colors } from '@/utils/constants/palette';
+import { breakpoints } from '@/utils/constants/screens';
 
 const Eliquis = '/logos/Eliquis_logo.svg';
 const Phone = '/icons/Phone_Orange.svg';
@@ -15,8 +16,49 @@ const Root = styled(Flex)`
         height: 100%;
     }
 
-    .age-text {
+    .age-text-desktop {
+       align-self: center;
+    }
+
+    .age-text-mobile {
         text-align: center;
+        font-size: 12px;
+        padding-bottom: 8px;
+    }
+
+    .hcp-text-mobile {
+        align-self: flex-end;
+        padding-bottom: 8px;
+        color: ${colors.orange};
+        font-weight: 800;
+
+        &:after {
+            content: ' >'
+        }
+    }
+
+    .hide-mobile {
+        display: block;
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            display: none;
+        }
+    }
+
+    .show-mobile {
+        display: none;
+        @media (max-width: ${breakpoints.NavBreak}px) {
+            display: block;
+        }
+    }
+
+    @media (max-width: ${breakpoints.NavBreak}px) {
+        flex-direction: column;
+        margin-top: 18px;
+
+        img {
+            align-self: flex-start;
+            height: 60%;
+        }
     }
 `;
 
@@ -60,15 +102,20 @@ export default function LowerNav() {
         alignItems='center'
         justify='space-evenly'
     >
+        <div className='age-text-mobile show-mobile'>This site is inteneded for U.S. residents 18 years of age or older.</div>
+        <div className='hcp-text-mobile show-mobile'>HEALTHCARE PROFESSIONALS SITE</div>
         <img src={Eliquis} alt='' />
-        <div className='age-text'>This site is inteneded for U.S. <br/> residents 18 years of age or older.</div>
+        <div className='age-text-desktop hide-mobile'>This site is inteneded for U.S. <br/> residents 18 years of age or older.</div>
         <CallContainer
             alignItems='center'
+            className='hide-mobile'
         >
             <img src={Phone} alt='' />
             <div>Call Us at <span>1-855-ELIQUIS</span></div>
         </CallContainer>
-        <CoPay>
+        <CoPay
+            className='hide-mobile'
+        >
             ACTIVATE CO-PAY CARD
         </CoPay>
     </Root>

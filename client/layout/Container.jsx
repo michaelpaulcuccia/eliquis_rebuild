@@ -11,7 +11,6 @@ const Container = styled.div`
   margin-right: auto;
 
     @media (max-width: ${breakpoints.md}px) {
-      position: relative;
       height: 100%;
       padding: 0 calc(1.47059vw + 5.29412px);
     }
