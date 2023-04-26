@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Flex from '@/utils/grid/Flex';
 import { colors } from '@/utils/constants/palette';
 import { breakpoints } from '@/utils/constants/screens';
-//import Spacer from '@/components/Spacers';
 import { Spacer } from '@/components/Spacers';
 
 const Eliquis = '/logos/Eliquis_logo.svg';
@@ -104,14 +103,13 @@ const MobileFlex = styled(Flex)`
 `;
 
 const CoPay = styled.div`
-    padding: 6px 8px;
+    padding: 12px 10px;
     font-size: 12px;
     background: ${colors.orange};
     color: ${colors.white};
     border-radius: 4px;
     font-weight: 800;
     cursor: pointer;
-    transition: background 1s ease-in-out;
 
     &:hover {
         background: linear-gradient(#ff6718, #ff6718);
