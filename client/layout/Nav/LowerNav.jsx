@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Flex from '@/utils/grid/Flex';
 import { colors } from '@/utils/constants/palette';
 import { breakpoints } from '@/utils/constants/screens';
+//import Spacer from '@/components/Spacers';
+import { Spacer } from '@/components/Spacers';
 
 const Eliquis = '/logos/Eliquis_logo.svg';
 const Phone = '/icons/Phone_Orange.svg';
@@ -92,7 +94,7 @@ const Mobile = styled(Flex)`
 
 const MobileFlex = styled(Flex)`
     height: 60%;
-    margin-top: -16px;
+    margin-top: -32px;
 
     img {
         height: 70%;
@@ -155,6 +157,14 @@ export default function LowerNav() {
                 className='hcp-text-mobile'
             >
                 HEALTHCARE PROFESSIONALS SITE
+            </div>
+            <Spacer
+                size={6} 
+            />
+            <div 
+                className='hcp-text-mobile'
+            >
+                EN ESPANOL
             </div>
             <MobileFlex
                 justify='space-between'
