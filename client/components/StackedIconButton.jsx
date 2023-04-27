@@ -11,6 +11,11 @@ const Root = styled(Flex)`
     margin: 8px 6px;
     box-shadow: 0 0.125rem 0.125rem 0 rgb(0 0 0 / 10%);
     border-radius: 4px;
+    width: 30%;
+
+    @media (max-width: ${breakpoints.lg}px) {
+        width: 100%;
+    }
 `;
 
 const IconAndHighLightWrapper = styled(Flex)`
@@ -18,6 +23,7 @@ const IconAndHighLightWrapper = styled(Flex)`
 
     @media (max-width: ${breakpoints.lg}px) {
         align-items: center;
+        justify-content: center;
     }
 
     img {
@@ -36,8 +42,8 @@ const IconAndHighLightWrapper = styled(Flex)`
         width: 60%;
 
         @media (max-width: ${breakpoints.lg}px) {
-            width: 40%;
-            margin-left: auto;
+            width: 60%;
+            padding-left: 20px;
             text-align: left;
         }
     }

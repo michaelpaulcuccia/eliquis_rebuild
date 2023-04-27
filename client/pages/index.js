@@ -14,10 +14,6 @@ const TalkToDr = '/icons/talk_to_dr.svg';
 const CallDr = '/icons/call_dr.svg';
 const SmallInfo = '/icons/small_info_icon.svg';
 
-const StyledStackedIconButton = styled(StackedIconButton)`
-  width: 30%;
-`;
-
 const StyledFlex = styled(Flex)`
 
   @media(max-width: ${breakpoints.lg}px) {
@@ -124,20 +120,20 @@ export default function Home() {
             buttonText="ELIQUIS & NONVAVULAR AFIB"
             footerText="For patients with AFib, a type of irregular heartbeat, not caused by a heart valve problem"
           />
-          <StyledStackedIconButton 
+          <StackedIconButton 
             icon={Vte}
             highlightText={<>Decrease Risk of DVT Blood Clots After Hip or Knee Replacement Surgery</>}
-            buttonText="ELIQUIS & HIP/KNEE REPLACEMENT"
+            buttonText="HIP/KNEE REPLACEMENT"
             footerText="For patients who have had hip surgery or knee replacement surgery"
           />
-          <StyledStackedIconButton 
+          <StackedIconButton 
               icon={Ortho}
               highlightText={<>Treat Blood Clots In the Veins of the Legs/Lungs & Reduce Risk of it Occuring again</>}
               buttonText="ELIQUIS & DVT/PE"
               footerText="For patients with deep vein thrombosis (DVT) or pulmonary embolism (PE)"
           />
         </StyledFlex>
-        <Spacer size={32} />
+        <Spacer size={24} />
         <Line/>
         <Spacer size={24} />
         <ImportantFactsContainer
