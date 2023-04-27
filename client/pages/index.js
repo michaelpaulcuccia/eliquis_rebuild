@@ -230,7 +230,7 @@ export default function Home() {
             <li>Muscle weakness</li>
           </ul>
         </PaddedContainer>
-        <Spacer size={48} />
+        <Spacer size={32} />
     </>
   )
 }

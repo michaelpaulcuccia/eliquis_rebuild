@@ -19,12 +19,14 @@ const Root = styled.button`
 `;
 
 export default function Button({
+    className,
     fontSize,
     fontFamily,
     children
 }) {
   return (
     <Root
+        className={className}
         fontSize={fontSize}
         fontFamily={fontFamily}
     >
