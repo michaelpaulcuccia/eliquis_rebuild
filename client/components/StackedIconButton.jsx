@@ -11,7 +11,6 @@ const Root = styled(Flex)`
     margin: 8px 6px;
     box-shadow: 0 0.125rem 0.125rem 0 rgb(0 0 0 / 10%);
     border-radius: 4px;
-
 `;
 
 const IconAndHighLightWrapper = styled(Flex)`
@@ -71,7 +70,7 @@ export default function StackedIconButton({
     icon,
     highlightText,
     buttonText,
-    footerText
+    footerText,
 }) {
     console.log(icon)
   return (

@@ -2,12 +2,17 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Flex from '@/utils/grid/Flex';
 import StackedIconButton from '@/components/StackedIconButton';
+import IconWithRightText from '@/components/IconWithRightText';
 import { Spacer } from '@/components/Spacers';
 import { breakpoints } from '@/utils/constants/screens';
 import { colors } from '@/utils/constants/palette';
+
 const AfiB = '/icons/AFB.svg';
 const Ortho = '/icons/ORTHO.svg';
 const Vte = '/icons/VTE.svg';
+const TalkToDr = '/icons/talk_to_dr.svg';
+const CallDr = '/icons/call_dr.svg';
+const SmallInfo = '/icons/small_info_icon.svg';
 
 const StyledStackedIconButton = styled(StackedIconButton)`
   width: 30%;
@@ -25,14 +30,75 @@ const StyledFlex = styled(Flex)`
 const HelpContainer = styled(Flex)`
   padding: 32px 0;
 
-  h2 {
+  @media (max-width: ${breakpoints.lg}px) {
+    padding: 24px;
     text-align: center;
   }
-
 `;
 
 const Line = styled.div`
   border-bottom: 3px solid ${colors.orange};
+`;
+
+const ImportantFactsContainer = styled(Flex)`
+  padding: 0 8px;
+
+  p {
+    align-self: flex-start;
+    padding-top: 8px;
+    font-size: 18px;
+  }
+
+`;
+
+const ImportantIconContainer = styled(Flex)`
+  margin-top: 24px;
+  padding: 12px 8px 16px 8px;
+  border: solid 1px ${colors.orange};
+  border-radius: 4px;
+  box-shadow: 0 0.125rem 0.125rem 0 rgb(0 0 0 / 10%);
+
+  @media (max-width: ${breakpoints.lg}px) {
+    flex-direction: column;
+    grid-gap: 12px;
+  }
+
+  .move-mobile-icon-bug {
+    @media (max-width: ${breakpoints.lg}px) {
+      margin-left: -25px;
+    }
+  }
+
+  p {
+    font-weight: 600;
+
+    @media (max-width: ${breakpoints.lg}px) {
+      text-align: center;
+    }
+  }
+`;
+
+const PaddedContainer = styled.div`
+  padding: 0 8px;
+
+  ul {
+    margin-top: 12px;
+    margin-left: 45px;
+    li {
+      padding-bottom: 4px;
+    }
+  }
+`;
+
+const StyledOrangeText = styled.h3`
+  font-weight: 600;
+  color: ${colors.orange};
+`;
+
+const StyledIconWithRightText = styled(IconWithRightText)`
+  @media (max-width: ${breakpoints.lg}px) {
+    align-items: flex-start;
+  }
 `;
 
 export default function Home() {
@@ -73,7 +139,98 @@ export default function Home() {
         </StyledFlex>
         <Spacer size={32} />
         <Line/>
-        <Spacer size={32} />
+        <Spacer size={24} />
+        <ImportantFactsContainer
+          justify='center'
+          direction='column'
+        >
+          <h2>Important facts about ELIQUIS® (apixaban)</h2>
+          <p>This is a summary of important safety information that you need to know about ELIQUIS.</p>
+          <ImportantIconContainer
+            alignItems='center'
+            justify='space-evenly'
+          >
+            <p>Look out for the following icons as you read:</p>
+            <IconWithRightText 
+              className='move-mobile-icon-bug'
+              icon={TalkToDr}
+              text={<strong>Talk to your <br/> healthcare team</strong>}
+            />
+            <IconWithRightText 
+              icon={CallDr}
+              text={<strong>Call a heathcare <br/> provider right away</strong>}
+            />
+            <IconWithRightText 
+              icon={SmallInfo}
+              text={<strong>Helpful information <br/> to remember</strong>}
+            />
+          </ImportantIconContainer>
+        </ImportantFactsContainer>
+        <Spacer size={16} />
+        <PaddedContainer>
+          <IconWithRightText 
+            icon={SmallInfo}
+            text={<StyledOrangeText>Do not stop taking ELIQUIS without talking to the doctor who prescribed it to you</StyledOrangeText>}
+          />
+          <Spacer size={8}/>
+          <h4>For patients taking ELIQUIS for atrial fibrillation: stopping ELIQUIS increases your risk of having a stroke.</h4>
+          <Spacer size={12}/>
+          <StyledIconWithRightText 
+            icon={TalkToDr}
+            text={<p><strong>Talk to your healthcare team before any medical procedures.</strong> ELIQUIS may need to be stopped before surgery or a medical or dental procedure. Your doctor will tell you when you should stop taking ELIQUIS and when you may start taking it again. If you have to stop taking ELIQUIS, your doctor may prescribe another medicine to help prevent a blood clot from forming.</p>}
+          />
+          <Spacer size={12}/>
+          <Line />
+          <Spacer size={16}/>
+          <h2>What are the possible serious side effects of ELIQUIS?</h2>
+          <Spacer size={6} />
+          <h4>This is a list of some of the serious side effects of ELIQUIS.</h4>
+          <Spacer size={16} />
+          <IconWithRightText 
+            icon={SmallInfo}
+            text={<strong>Bleeding</strong>}
+          />
+          <Spacer size={12} />
+          <p><strong>ELIQUIS can cause bleeding,</strong> which can be serious, and rarely may lead to death. This is because ELIQUIS is a blood thinner medicine that reduces blood clotting. While taking ELIQUIS, you may bruise more easily and it may take longer than usual for any bleeding to stop.</p>
+          <Spacer size={6} />
+          <p><strong>You may have a higher risk of bleeding if you take ELIQUIS with</strong>other medicines that increase your risk of bleeding, such as:</p>
+          <ul>
+            <li>Aspirin</li>
+            <li>Heparin</li>
+            <li>Other medicines to help prevent or treat blood clots</li>
+          </ul>
+          <Spacer size={12} />
+          <IconWithRightText 
+            icon={TalkToDr}
+            text={<strong>Tell your doctor if you take any of these medicines.</strong>}
+          />
+          <Spacer size={16} />
+          <IconWithRightText 
+            icon={SmallInfo}
+            text={<StyledOrangeText>Spinal or epidural blood clots (hematoma)</StyledOrangeText>}
+          />
+          <Spacer size={12} />
+          <p>People who take ELIQUIS, and have medicine injected into their spinal or epidural area, or have a spinal puncture, have a risk of forming a blood clot that can cause long-term or permanent loss of the ability to move (paralysis).</p>
+          <Spacer size={6} />
+          <ul>
+            <li>A thin tube called an epidural catheter is placed in your back to give you certain medicine</li>
+            <li>You have a history of difficult or repeated epidural or spinal punctures</li>
+          </ul>
+          <Spacer size={6}/>
+          <p>If you take ELIQUIS and receive spinal anesthesia or have a spinal puncture, your doctor should watch you closely for symptoms of spinal or epidural blood clots or bleeding.</p>
+          <Spacer size={12}/>
+          <IconWithRightText 
+            icon={CallDr}
+            text={<p><strong>Tell your doctor right away</strong> if you have any of these signs or symptoms (especially in your legs and feet) when taking ELIQUIS:</p>}
+          />
+          <Spacer size={6}/>
+          <ul>
+            <li>Tingling</li>
+            <li>Numbness</li>
+            <li>Muscle weakness</li>
+          </ul>
+        </PaddedContainer>
+        <Spacer size={48} />
     </>
   )
 }
