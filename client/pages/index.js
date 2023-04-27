@@ -2,12 +2,12 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Flex from '@/utils/grid/Flex';
 import StackedIconButton from '@/components/StackedIconButton';
+import { Spacer } from '@/components/Spacers';
 import { breakpoints } from '@/utils/constants/screens';
 import { colors } from '@/utils/constants/palette';
 const AfiB = '/icons/AFB.svg';
 const Ortho = '/icons/ORTHO.svg';
 const Vte = '/icons/VTE.svg';
-
 
 const StyledStackedIconButton = styled(StackedIconButton)`
   width: 30%;
@@ -23,12 +23,16 @@ const StyledFlex = styled(Flex)`
 `;
 
 const HelpContainer = styled(Flex)`
-  padding: 24px 0;
+  padding: 32px 0;
 
   h2 {
     text-align: center;
   }
 
+`;
+
+const Line = styled.div`
+  border-bottom: 3px solid ${colors.orange};
 `;
 
 export default function Home() {
@@ -67,6 +71,9 @@ export default function Home() {
               footerText="For patients with deep vein thrombosis (DVT) or pulmonary embolism (PE)"
           />
         </StyledFlex>
+        <Spacer size={32} />
+        <Line/>
+        <Spacer size={32} />
     </>
   )
 }
