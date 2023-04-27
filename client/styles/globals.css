@@ -10,4 +10,5 @@ html {
   height: auto;
   min-height: 100%;
   text-size-adjust: 100%;
+  min-width: 375px;
 }

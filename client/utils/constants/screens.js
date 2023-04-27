@@ -1,7 +1,3 @@
 export const breakpoints = {
-    sm: "320",
-    md: "500",
-    lg: "960",
-    NavBreak: '1000',
-    rowOfThreeBreak: '775'
+    lg: '1000',
 };

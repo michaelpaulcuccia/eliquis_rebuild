@@ -10,7 +10,7 @@ const Root = styled(Flex)`
     font-family: 'Arial';
     border-radius: 4px;
     
-    @media (max-width: ${breakpoints.NavBreak}px) {
+    @media (max-width: ${breakpoints.lg}px) {
         height: 72px;
         justify-content: space-evenly;
         border-radius: 0px;
@@ -39,13 +39,13 @@ const Root = styled(Flex)`
     }
 
     .hide-nav {
-        @media (max-width: ${breakpoints.NavBreak}px) {
+        @media (max-width: ${breakpoints.lg}px) {
             display: none;
         }
     }
 
     .mobile-adjust {
-        @media (max-width: ${breakpoints.NavBreak}px) {
+        @media (max-width: ${breakpoints.lg}px) {
             text-align: center;
         }
     }
@@ -53,7 +53,7 @@ const Root = styled(Flex)`
     .hidden-desktop {
         display: none;
 
-        @media (max-width: ${breakpoints.NavBreak}px) {
+        @media (max-width: ${breakpoints.lg}px) {
             display: block;
         }
     }

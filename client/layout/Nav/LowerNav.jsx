@@ -4,6 +4,7 @@ import Flex from '@/utils/grid/Flex';
 import { colors } from '@/utils/constants/palette';
 import { breakpoints } from '@/utils/constants/screens';
 import { Spacer } from '@/components/Spacers';
+import Button from '@/components/Button';
 
 const Eliquis = '/logos/Eliquis_logo.svg';
 const Phone = '/icons/Phone_Orange.svg';
@@ -12,14 +13,14 @@ const Root = styled.div`
 
     .hide-mobile {
         display: flex;
-        @media (max-width: ${breakpoints.NavBreak}px) {
+        @media (max-width: ${breakpoints.lg}px) {
             display: none;
         }
     }
 
     .show-mobile {
         display: none;
-        @media (max-width: ${breakpoints.NavBreak}px) {
+        @media (max-width: ${breakpoints.lg}px) {
             display: flex;
         }
     }
@@ -102,20 +103,6 @@ const MobileFlex = styled(Flex)`
 
 `;
 
-const CoPay = styled.div`
-    padding: 12px 10px;
-    font-size: 12px;
-    background: ${colors.orange};
-    color: ${colors.white};
-    border-radius: 4px;
-    font-weight: 800;
-    cursor: pointer;
-
-    &:hover {
-        background: linear-gradient(#ff6718, #ff6718);
-    }
-`;
-
 export default function LowerNav() {
   return (
     <Root>
@@ -137,9 +124,11 @@ export default function LowerNav() {
             <img src={Phone} alt='' />
             <div>Call Us at <span>1-855-ELIQUIS</span></div>
         </PhoneWithText>
-        <CoPay>
+        <Button
+            fontFamily='arial'
+        >
             ACTIVATE CO-PAY CARD
-        </CoPay>
+        </Button>
         </Desktop>
         {/* ******** */}
         <Mobile
@@ -170,9 +159,11 @@ export default function LowerNav() {
             >
                 <img src={Eliquis} alt='' />
                 <div>
-                    <CoPay>
+                    <Button
+                        fontFamily='arial'
+                    >
                         ACTIVATE CO-PAY CARD
-                    </CoPay>
+                    </Button>
                 </div>
             </MobileFlex>
         </Mobile>
