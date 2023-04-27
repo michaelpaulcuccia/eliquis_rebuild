@@ -18,7 +18,10 @@ const Wrapper = styled(Flex)`
 export default function Nav() {
   return (
     <Root>
-        <Wrapper direction='column'>
+        <Wrapper 
+        direction='column'
+        alignContent='center'
+        >
             <UpperNav/>
             <LowerNav/>
         </Wrapper>

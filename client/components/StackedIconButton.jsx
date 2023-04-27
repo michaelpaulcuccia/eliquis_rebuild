@@ -78,7 +78,6 @@ export default function StackedIconButton({
     buttonText,
     footerText,
 }) {
-    console.log(icon)
   return (
     <Root
         direction='column'
