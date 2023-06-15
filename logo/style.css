@@ -1,0 +1,29 @@
+.container {
+    width: 900px;
+    height: 900px;
+}
+
+.circle {
+    border: solid 80px gray;
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    position: relative;
+}
+
+.text-1 {
+    font-size: 38px;
+    margin-bottom: 120px;
+}
+
+.text {
+    color: white;
+}
+
+.image {
+    position: absolute;
+    right: 240px;
+    bottom: 5px;
+    z-index: -1;
+}
+
