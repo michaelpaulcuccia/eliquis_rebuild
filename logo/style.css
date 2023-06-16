@@ -4,7 +4,7 @@
 }
 
 .circle {
-    border: solid 80px rgb(24, 23, 23);
+    border: solid 120px rgb(24, 23, 23);
     border-radius: 50%;
     width: 90%;
     height: 90%;
@@ -12,7 +12,7 @@
 }
 
 .text {
-    margin-top: -30px;
+    margin-top: -40px;
     margin-left: -50px;
     overflow: visible;
     letter-spacing: 3.5px;
@@ -22,10 +22,10 @@
 
 .image {
     position: absolute;
-    right: 240px;
-    bottom: 5px;
+    right: 165px;
+    top: 8px;
     z-index: -1;
+    width: 62%;
 }
-
 
   
