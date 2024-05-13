@@ -1,12 +1,6 @@
 # eliquis_rebuild
 
-eliquis-rebuild-michaelpaulcuccia.vercel.app
+### Rebuild of the Eliquis Homepage utilizing some of the existing text and images
 
-eliquis-rebuild.vercel.app
+https://eliquis-rebuild.vercel.app/
 
-eliquis-rebuild-git-master-michaelpaulcuccia.vercel.app
-
-# Use Node Version 16
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-# This loads nvm
